@@ -148,18 +148,20 @@
         <% photos.forEach( photo => { %>
           <a href="<%= photo.link %>">
             <div class="instagram" style="background-image: url('<%= photo.images.standard_resolution.url%>'); width: <%= photo.images.standard_resolution.width/2 %>px; height: <%= photo.images.standard_resolution.height/2 %>px">
-              <div class="bar">
-                <img class="avatar" src="<%= photo.user.profile_picture %>">
-                <div class="titles">
-                  <p class="name"><%= photo.user.full_name%></p>
-                  <p class="user-name"><%= photo.user.username%></p>
+              <a href="/<%= photo.user.username %>">
+                <div class="bar">
+                  <img class="avatar" src="<%= photo.user.profile_picture %>">
+                  <div class="titles">
+                    <p class="name"><%= photo.user.full_name%></p>
+                    <p class="user-name"><%= photo.user.username%></p>
+                  </div>
+                  <div class="likes">
+                    <i class="fa fa-heart">
+                    <span><%= photo.likes.count %></span>
+                    </i>
+                  </div>
                 </div>
-                <div class="likes">
-                  <i class="fa fa-heart">
-                  <span><%= photo.likes.count %></span>
-                  </i>
-                </div>
-              </div>
+              </a>
             </div>
           </a>
         <% }) %>
