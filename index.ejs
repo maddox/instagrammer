@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Instagrammer</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+    <style media="screen">
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #eaebed;
+      }
+
+      .nav{
+        padding: 10px 20px;
+        text-align: right;
+      }
+      .button{
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 26px;
+        color: #ffffff;
+        text-decoration: none;
+      }
+      .rss-button{
+        background-color: #da7d35;
+      }
+      .json-button{
+        background-color: #4b7097;
+      }
+      .sign-in-button{
+        background-color: #4b7097;
+      }
+      .sign-in-button span{
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      a{
+        text-decoration: none;
+      }
+
+      .container{
+        margin: 20px auto;
+        width: 400px;
+      }
+
+      .instagram{
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-bottom: 40px;
+      }
+      .bar{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        padding: 6px 8px;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        grid-gap: 8px;
+
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      .avatar{
+        width:35px;
+        height:35px;
+        border-radius: 4px;
+      }
+      .titles p{
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
+      }
+      .name{
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .user-name{
+        font-size: 12px;
+        font-weight: 200;
+      }
+
+      .bar i{
+        position: relative;
+        float: right;
+        margin: 6px 0 0 0;
+        font-size: 26px;
+        color: #ffffff;
+      }
+      .bar i span{
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        position: absolute;
+        top: 6px;
+        right: 0;
+        left: 0;
+        text-align: center;
+        color: #000000;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="nav">
+      <a href="/auth/instagram" title="Sign in with Instagram">
+        <span class="button sign-in-button">
+          <i class="fab fa-instagram"></i> <span>Sign in with Instagram</span>
+        </span>
+      </a>
+
+      <a href="<%= jsonURL %>" title="Get instagrams via JSON">
+        <span class="button json-button">
+          <i class="fab fa-js"></i>
+        </span>
+      </a>
+
+      <a href="<%= rssURL %>" title="Get instagrams via RSS">
+        <span class="button rss-button">
+          <i class="fa fa-rss"></i>
+        </span>
+      </a>
+    </div>
+
+    <div class="container">
+      <% if (photos.length === 0) { %>
+      <h2>Sign in with Instagram to add your photos.</h2>
+      <% } else { %>
+        <% photos.forEach( photo => { %>
+          <a href="<%= photo.link %>">
+            <div class="instagram" style="background-image: url('<%= photo.images.standard_resolution.url%>'); width: <%= photo.images.standard_resolution.width/2 %>px; height: <%= photo.images.standard_resolution.height/2 %>px">
+              <div class="bar">
+                <img class="avatar" src="<%= photo.user.profile_picture %>">
+                <div class="titles">
+                  <p class="name"><%= photo.user.full_name%></p>
+                  <p class="user-name"><%= photo.user.username%></p>
+                </div>
+                <div class="likes">
+                  <i class="fa fa-heart">
+                  <span><%= photo.likes.count %></span>
+                  </i>
+                </div>
+              </div>
+            </div>
+          </a>
+        <% }) %>
+      <% } %>
+    </div>
+
+  </body>
+</html>

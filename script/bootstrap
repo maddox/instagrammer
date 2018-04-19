@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# script/bootstrap: Set up project dependencies
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "Installing dependencies..."
+
+yarn

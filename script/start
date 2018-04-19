@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# script/start: Start Instagrammer
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "Starting Instagrammer..."
+
+script/bootstrap
+yarn start
