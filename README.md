@@ -25,8 +25,9 @@ Instagrammer runs on port `3001` by default.
 
 You'll need to go to the [Instagram Developer Console](https://instagram.com/developers) and create a new app. Once you've done that and gotten your `CLIENT_ID` and `CLIENT_SECRET` you can start setting up Instagrammer.
 
-**Protip**: Make sure you enter the right callback URL when creating the Instagram app, so that auth can complete correctly. Check the host and port you'll be accessing Instagrammer with before doing this.
+**Protip**: Make sure you enter the right redirect URI when creating the Instagram app, so that auth can complete correctly. Check the host and port you'll be accessing Instagrammer with before doing this.
 
+**Redirect URI**: The format your Redirect URI will take is `$host:$port/auth/instagram/callback`. For example: `http://192.168.1.50:3001/auth/instagram/callback`.
 
 ### Raw
 
