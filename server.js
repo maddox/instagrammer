@@ -90,7 +90,6 @@ app.get('/all.:extension?', (req, res) => {
     const rssURL = req.originalUrl + '.rss'
     const jsonURL = req.originalUrl + '.json'
     ejs.renderFile('index.ejs', {photos, rssURL, jsonURL}, {}, (err, str) => {
-      console.log(err)
       res.send(str)
     })
   }
