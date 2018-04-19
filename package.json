@@ -1,6 +1,7 @@
 {
   "name": "instagrammer",
   "version": "1.0.0",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^5.0.1",
     "ejs": "^2.5.9",
