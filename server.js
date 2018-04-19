@@ -61,6 +61,10 @@ app.get('/all.:extension?', (req, res) => {
     photos = photos.concat(user.photos)
   })
 
+  photos.sort(function(a, b) {
+    return b.created_time - a.created_time
+  })
+
   photos = photos.slice(0, 20)
 
   if (req.params.extension === 'rss') {
