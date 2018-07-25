@@ -1,12 +1,12 @@
-FROM node:9.11-alpine
-
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-COPY . /usr/src/app
-RUN script/docker/setup
+FROM clutch
 
 ENV NODE_ENV=production
 
-CMD [ "yarn", "start" ]
+# Install app dependencies
+WORKDIR /data/app
+COPY package.json /data/app/
+RUN yarn
+
+COPY . /data/app
+
+WORKDIR /data/clutch
