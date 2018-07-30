@@ -56,6 +56,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/all.:extension?', (req, res) => {
+  console.log('Showing all photos')
   let photos = []
   userManager.users.forEach(user => {
     photos = photos.concat(user.photos)
@@ -96,6 +97,7 @@ app.get('/all.:extension?', (req, res) => {
 })
 
 app.get('/:username.:extension?', (req, res) => {
+  console.log(`Showing ${req.params.username}'s photos`)
   const user = userManager.findUserByUsername(req.params.username)
 
   if (!user) {
