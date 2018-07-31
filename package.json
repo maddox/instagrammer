@@ -10,13 +10,16 @@
     "rss": "^1.2.2"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "eslint": "^4.8.0",
     "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-prettier": "^2.3.1",
+    "nodemon": "^1.18.3",
+    "noodle": "maddox/noodle#it",
     "prettier": "^1.7.4"
   }
 }
