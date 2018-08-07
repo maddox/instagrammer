@@ -7,6 +7,5 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 RUN script/docker/setup
 
-ENV NODE_ENV=production
 
 CMD [ "yarn", "start" ]
