@@ -7,5 +7,6 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 RUN script/docker/setup
 
+EXPOSE 3001
 
 CMD [ "yarn", "start" ]
