@@ -9,4 +9,4 @@ RUN script/docker/setup
 
 EXPOSE 3001
 
-CMD [ "yarn", "start" ]
+CMD [ "script/docker/start" ]
